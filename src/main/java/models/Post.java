@@ -28,7 +28,8 @@ public class Post {
     private LocalDateTime dateTime = LocalDateTime.now();
 
     @OneToMany(mappedBy = "post", fetch = FetchType.EAGER ,cascade = CascadeType.ALL)
-    private static List<PostComment> comments = new ArrayList<>();
+    @ToString.Exclude
+    private  List<PostComment> comments = new ArrayList<>();
 
     public void addComments (PostComment postComment){
         comments.add(postComment);
