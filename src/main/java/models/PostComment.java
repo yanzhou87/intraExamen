@@ -1,9 +1,6 @@
 package models;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 
@@ -26,5 +23,6 @@ public class PostComment {
 
     @ManyToOne
     @JoinColumn(name = "POST_ID")
+    @ToString.Exclude
     private Post post;
 }

@@ -13,6 +13,7 @@ import java.util.List;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
+@Table(name = "post")
 public class Post {
 
     @Id
@@ -27,8 +28,7 @@ public class Post {
 
     private LocalDateTime dateTime = LocalDateTime.now();
 
-    @OneToMany(mappedBy = "post", fetch = FetchType.EAGER ,cascade = CascadeType.ALL)
-    @ToString.Exclude
+    @OneToMany(mappedBy = "post",cascade = CascadeType.ALL)
     private  List<PostComment> comments = new ArrayList<>();
 
     public void addComments (PostComment postComment){

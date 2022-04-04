@@ -40,9 +40,10 @@ public class ServicePost {
 
         postComment.setCommentateur(postUserDao.findPostUser(commenteurId));
         postComment.setComment(comment);
-        post.addComments(postComment);
+      //  postComment.setPost(post);
 
         postCommentDao.save(postComment);
+        postDao.saveMerge(postId, postComment);
     }
 
     public Post findPost(long postId) {
